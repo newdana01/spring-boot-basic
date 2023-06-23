@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import jakarta.persistence.EntityManager;
@@ -36,4 +37,9 @@ public class SpringConfig {
 ////        return new MemoryMemberRepository(); // 다른 구현체로 변경해야한다면 이 리턴 값만 변경해주면 됨
 //        return new JpaMemberRepository(em);
 //    }
+
+    @Bean
+    public TimeTraceAop timeTraceAop(){
+        return new TimeTraceAop();
+    }
 }
